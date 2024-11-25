@@ -15,7 +15,8 @@ app.get('/hello/:name/:surname', (req,res) => {
 });
 
 app.get('/api/movies', (req, res) => {
-    const movies = [
+    const myMovies = {
+        "myMovies": [
         {
             "Title": "Avengers: Infinity War",
             "Year": "2018",
@@ -37,7 +38,7 @@ app.get('/api/movies', (req, res) => {
             "Type": "movie",
             "Poster": "https://example.com/poster3.jpg"
         }
-    ];
+    ]};
     res.json({ movies });
 });
 
