@@ -48,6 +48,12 @@ app.get('/api/movies', (req, res) => {
     res.status(201).json(myMovies); 
 });
 
+app.get('/name', (req, res) => {
+    const firstname = req.query.firstname;
+    const lastname = req.query.lastname;
+    res.send(`Hello ${firstname} ${lastname}`);
+});
+
 //Error handling
 app.use((err, req, res, next) => {
     console.error(err.stack);
