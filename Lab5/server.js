@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = 3000;
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Serve the index.html file
 app.get('/index', (req, res) => {
@@ -51,6 +53,12 @@ app.get('/api/movies', (req, res) => {
 app.get('/name', (req, res) => {
     const firstname = req.query.firstname;
     const lastname = req.query.lastname;
+    res.send(`Hello ${firstname} ${lastname}`);
+});
+
+app.post('/name', (req, res) => {
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
     res.send(`Hello ${firstname} ${lastname}`);
 });
 
